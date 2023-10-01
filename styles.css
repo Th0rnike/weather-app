@@ -1,0 +1,148 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+#switchDiv{
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 15px;
+    visibility: hidden;
+}
+
+#weather{
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-around;
+    align-items: center;
+    height: 100vh;
+    padding: 3%;
+    background-color: #ea4335;
+}
+
+label{
+    font-weight: 900;
+}
+
+input{
+    width: 30%;
+    border-radius: 30px;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 1rem;
+    font-weight: 900;
+}
+
+form{
+    text-align: center;
+}
+
+#button{
+    width: 100%;
+    padding: 10px;
+    border-radius: 30px;
+    font-weight: 900;
+    background-color: white;
+}
+
+ul{
+    width: 100%;
+}
+
+li{
+    list-style: none;
+    text-align: left;
+    color: #0d0c22;
+}
+
+[data-placename]{
+    font-size: 2rem;
+    font-weight: 900;
+}
+
+[data-feels-like]{
+    font-size: 6rem;
+    font-weight: 900;
+}
+
+[data-feels-like]::after{
+    content: "\00B0";
+}
+
+[data-max]{
+    font-size: 1.15rem;
+    display: inline;
+    padding-left: 2%;
+    padding-top: 5%;
+}
+
+[data-max]::after{
+    content: "\00B0"
+}
+
+[data-min]{
+    font-size: 1.15rem;
+    display: inline;
+    border-bottom: 2px;
+}
+
+[data-min]::after{
+    content: "\00B0"
+}
+
+/* the second part of the information */
+
+hr{
+    opacity: 1 !important;
+    margin-top: 1rem;
+}
+
+.right-part{
+    text-align: left;
+}
+
+[data-weather]::before{
+    content: "Weather - ";
+}
+
+[data-weather]{
+    font-size: 1.3rem;
+    margin-top: 12.5%;
+
+}
+
+[data-description]::before{
+    content: "Description - ";
+}
+
+[data-description]{
+    font-size: 1.3rem;
+}
+
+[data-country]::before{
+    content: "Country - ";
+}
+
+[data-country]{
+    font-size: 1.3rem;
+}
+
+[data-humidity]::before{
+    content: "Humidity - ";
+}
+
+[data-humidity]{
+    font-size: 1.3rem;
+
+}
+
+[data-clouds]::before{
+    content: "Cloud % - ";
+}
+
+[data-clouds]{
+    font-size: 1.3rem;
+}
