@@ -1,3 +1,29 @@
+// Define a function to apply styles for the dark theme
+function applyDarkThemeStyles() {
+    weatherDiv.style.backgroundColor = "#0d0c22";
+    for (const li of dataList.childNodes) {
+        li.style.color = "#fff";
+    }
+    for (const label of labels) {
+        label.style.color = "#fff";
+    }
+    info.style.color = "#fff";
+}
+
+// Define a function to apply styles for the light theme
+function applyLightThemeStyles() {
+    weatherDiv.style.backgroundColor = "#ea4335";
+    for (const li of dataList.childNodes) {
+        li.style.color = "#0d0c22";
+    }
+    for (const label of labels) {
+        label.style.color = "#0d0c22";
+    }
+    info.style.color = "#0d0c22";
+}
+
+
+
 const API = "026288e9b73e8747a756f697d52ab8dd"
 
 const weatherDiv = document.getElementById("weather")
@@ -11,6 +37,14 @@ const dataList = document.getElementById("dataList")
 const switchDiv = document.getElementById("switchDiv")
 
 const backgroundChange = document.getElementById("flexSwitchCheckDefault")
+
+backgroundChange.addEventListener("change", () => {
+    if (backgroundChange.checked) {
+        applyDarkThemeStyles();
+    } else {
+        applyLightThemeStyles();
+    }
+});
 
 
 button.addEventListener('click', (e) => {
@@ -85,25 +119,31 @@ button.addEventListener('click', (e) => {
                         
 
                         switchDiv.style.setProperty("visibility", "visible", "important");
-                        backgroundChange.addEventListener("change", () => {
-                            if(backgroundChange.checked){
-                                weatherDiv.style.backgroundColor = "#0d0c22"
-                                console.log(dataList.childNodes[index])
-                                dataList.childNodes[index].style.color = "#fff"  
-                                labels[0].style.color = "#fff"
-                                labels[1].style.color = "#fff"
-                                info.style.color = "#fff"
-                            }else{
-                                weatherDiv.style.backgroundColor = "#ea4335"
-                                dataList.childNodes[index].style.color = "#0d0c22"
-                                labels[0].style.color = "#0d0c22"
-                                labels[1].style.color = "#0d0c22"
-                                info.style.color = "#0d0c22"
-                            }
-                        })
-
-
+                        // backgroundChange.addEventListener("change", () => {
+                        //     if(backgroundChange.checked){
+                        //         {
+                        //             weatherDiv.style.backgroundColor = "#0d0c22";
+                        //             dataList.childNodes[index].style.color = "#fff";
+                        //             labels[0].style.color = "#fff";
+                        //             labels[1].style.color = "#fff";
+                        //             info.style.color = "#fff";
+                        //         }
+                        //     }else{
+                        //         weatherDiv.style.backgroundColor = "#ea4335"
+                        //         dataList.childNodes[index].style.color = "#0d0c22"
+                        //         labels[0].style.color = "#0d0c22"
+                        //         labels[1].style.color = "#0d0c22"
+                        //         info.style.color = "#0d0c22"
+                        //     }
+                        // })
                         
+                        if (backgroundChange.checked) {
+                            applyDarkThemeStyles();
+                        } else {
+                            applyLightThemeStyles();
+                        }
+                    
+
                         switch (index) {
                             case 0:
                                 li.dataset.placename = "placename"
