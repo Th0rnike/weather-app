@@ -1,16 +1,23 @@
+/* to fix ios visibility */
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
+    -webkit-appearance: none
 }
 
 #switchDiv{
+    position: fixed !important;
+    right: 2%;
+    top: 1%;
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
     gap: 15px;
-    visibility: hidden;
+    visibility: visible !important;
+    font-size: 1.1rem;
 }
 
 #weather{
@@ -28,24 +35,48 @@ label{
 }
 
 input{
-    width: 30%;
-    border-radius: 30px;
-    padding: 10px;
+    width: fit-content;
+    border-radius: 15px;
+    padding: 5px;
     margin: 10px 0;
     font-size: 1rem;
     font-weight: 900;
+    background-color: #0d0c22;
+    border: none;
+    color: white;
+    text-align: center;
+}
+
+/* remove arrows from number input */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
 }
 
 form{
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 #button{
-    width: 100%;
-    padding: 10px;
+    width: 45%;
+    padding: 6px;
     border-radius: 30px;
     font-weight: 900;
     background-color: white;
+    margin-top: 10px;
+    background-color: #0d0c22;
+    color: white;
+    border: none;
 }
 
 ul{
@@ -64,7 +95,7 @@ li{
 }
 
 [data-feels-like]{
-    font-size: 6rem;
+    font-size: 5rem;
     font-weight: 900;
 }
 
@@ -94,11 +125,6 @@ li{
 }
 
 /* the second part of the information */
-
-hr{
-    opacity: 1 !important;
-    margin-top: 1rem;
-}
 
 .right-part{
     text-align: left;
@@ -145,4 +171,23 @@ hr{
 
 [data-clouds]{
     font-size: 1.3rem;
+}
+
+
+@media (min-width: 700px){
+    main{
+        margin: 5%;
+    }
+    #weather{
+        border-radius: 50px;
+    }
+    #dataList{
+        padding-left: 35%;
+        padding-top: 1rem;
+    }
+    #switchDiv{
+        position: absolute !important;
+        right: 7%;
+        top: 9%;
+    }
 }
